@@ -9,6 +9,9 @@ Progress::Progress(float min, float max)
     // initialize with min and max values. 
     _min = min;
     _max = max;
+    _currentValue = min;
+    _progressBar = NULL;
+    _paddedPercentage = NULL;
 }
 Progress::~Progress(){
     free(_progressBar);
