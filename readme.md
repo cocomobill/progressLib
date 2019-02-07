@@ -1,7 +1,7 @@
 # progressLib
 ProgressLib is a lightweight Arduino compatible, cross-platform progressbar and progress library
 
-![Lcd showing progressbars](https://raw.githubusercontent.com/cocomobill/progressLib/lcd.png)
+![Lcd showing progressbars](https://raw.githubusercontent.com/cocomobill/progressLib/master/lcd.png)
 ```
 Hey! Now doing some stuff for next 120 seconds
 [#####################################                                         ] 48.33% 58 seconds so far
