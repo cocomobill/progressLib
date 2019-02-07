@@ -86,18 +86,6 @@ def run_cpp(code: str) -> str:
     with tempfile.TemporaryDirectory() as tempdir:
         shutil.copy("./Progress.h", tempdir)
         shutil.copy("./Progress.cpp", tempdir)
-        with open(f"{tempdir}/Progress.h", "a+") as progress:
-            progress.write(
-                """
-char *dtostrf (double val, signed char width, unsigned char prec, char *sout) {
-  char fmt[20];
-  sprintf(fmt, "%%%d.%df", width, prec);
-  sprintf(sout, fmt, val);
-  return sout;
-}
-"""
-            )
-
         with open(f"{tempdir}/main.cpp", "w+") as code_file:
             code_file.write(
                 """
@@ -112,7 +100,7 @@ char *dtostrf (double val, signed char width, unsigned char prec, char *sout) {
             )
         # print(open(f'{tempdir}/main.cpp').read())
         subprocess.run(
-            ["c++", "main.cpp", "-O0", "-o", "main", "-fpermissive"],
+            ["c++", "main.cpp", "-O0", "-o", "main"],
             cwd=tempdir,
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE,
